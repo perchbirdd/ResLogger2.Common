@@ -1,0 +1,1 @@
+# ResLogger2.Common
