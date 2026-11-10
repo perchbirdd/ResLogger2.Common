@@ -78,8 +78,10 @@ public class ServerHashDatabase : DbContext
 
 	public void ReloadCache()
 	{
-		_cache ??= new PathCache(this);
-		_cache.Reload();
+		if (_cache == null)
+			_cache = new PathCache(this);
+		else
+			_cache.Reload();
 	}
 	
 	private void HandlePathEntry(GameVersion gv, uint indexId, CompositeIndexInfo.CombinedIndexEntry combinedEntry)
